@@ -1,0 +1,2 @@
+module ResearchItemHelper
+end
