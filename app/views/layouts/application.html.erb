@@ -11,9 +11,27 @@
   <body style="padding-top: 40px;">
 
     <%= render 'layouts/header' %>
-    
-    <%= yield %>
+
+    <div id="appContainer">
       
-  </body>
+      <div class="container">
+        <div class="row">
+
+          <div class="span16">
+              
+            <%= yield %>
+              
+          </body>
+
+          </div>
+
+        </div>
+      </div>
+
+      <%= render 'layouts/footer' %>
+
+    </div>
+
+
 
 </html>

@@ -1,42 +1,29 @@
-<div id="appContainer">
-<div class="container">
-<div class="row">
-  <div class="span16">
-  
-    <!-- Main hero unit for a primary marketing message or call to action -->
-    <div class="hero-unit">
-      <h1>Research Force</h1>
-      <p>This is the home page for Research Force</p>
-    	<% if !signed_in? %>
-    		<%= link_to "Sign in", signin_path, :class => "btn primary large" %>
-    	<% end%>
-    	</p>
-    </div>
-
-        <!-- Example row of columns -->
-    <div class="row">
-      <div class="span6">
-        <h2>Build</h2>
-        <p>Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-        <p><a class="btn" href="#">View details &raquo;</a></p>
-      </div>
-      <div class="span5">
-        <h2>Collaborate</h2>
-         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn" href="#">View details &raquo;</a></p>
-     </div>
-      <div class="span5">
-        <h2>Publish</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn" href="#">View details &raquo;</a></p>
-      </div>
-    </div>
-
-  </div>
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+  <h1>Research Force</h1>
+  <p>This is the home page for Research Force</p>
+	<% if !signed_in? %>
+		<%= link_to "Sign in", signin_path, :class => "btn primary large" %>
+	<% end%>
+	</p>
 </div>
-</div
 
-<%= render 'layouts/footer' %>
-
+    <!-- Example row of columns -->
+<div class="row">
+  <div class="span6">
+    <h2>Header 1</h2>
+    <p>Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+    <p><a class="btn" href="#">View details &raquo;</a></p>
+  </div>
+  <div class="span5">
+    <h2>Header 2</h2>
+     <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+    <p><a class="btn" href="#">View details &raquo;</a></p>
+ </div>
+  <div class="span5">
+    <h2>Header 3</h2>
+    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    <p><a class="btn" href="#">View details &raquo;</a></p>
+  </div>
 </div>
 
