@@ -4,13 +4,11 @@
 
     <div class="container" style="width:100% !important;padding: 0 10px;min-width:950px;">
 
-      <h3><a href="#"><%= image_tag("ucsf_logo_white.png" , :alt => "logo",:height => 20) %> Surveys</a></h3>
+      <h3><a href="#">Research Force</a></h3>
 
 		<% if signed_in? %>
 			<ul>
 				<li><%= link_to "Home", root_path %></li>
-				<li><%= link_to "Survey Builder", builder_path %></li>
-				<li><%= link_to "My Surveys", surveys_path %></li>
 				<% if current_user.admin? %>
 				<li><%= link_to "Users", users_path %></li>
 				<li><%= link_to "Settings", edit_user_path(current_user) %></li>

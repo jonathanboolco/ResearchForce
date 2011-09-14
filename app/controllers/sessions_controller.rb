@@ -141,7 +141,7 @@ class SessionsController < ApplicationController
 
         sign_in user
         flash[:success] = "Hi "+user.name+" ,  Welcome to our Survey Service!"
-        redirect_back_or surveys_path
+        redirect_back_or user
         #redirect_to root_path
       else
 
