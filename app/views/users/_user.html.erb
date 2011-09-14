@@ -1,0 +1,14 @@
+<td>
+	<%= image_tag(user.thumbnail+"?oauth_token="+@serviceauth.token,:size=>"30x30") %>
+</td>
+<td>
+	<%= link_to user.name, user %>
+</td>
+<td>
+	<%= user.email %>
+</td>
+<td>
+	<% if current_user.admin? %>
+  	| <%= link_to "delete", user, :method => :delete, :confirm => "You sure?", :title => "Delete #{user.name}" %>
+	<% end %>
+</td>

@@ -1,0 +1,121 @@
+
+<script type='text/javascript' src='javascripts/steal/steal.js?surveybuilder,development'></script>
+<script language="javascript">
+
+	// Preview path
+	PREVIEW_PATH = '<%= @preview_url %>';
+	PUBLISH_PATH = '<%= @publish_url %>';
+	SF_URL = '<%= @salesforce_url %>';
+	ENABLE_LOCAL_SAVE = false;
+	
+	// Optional "exit" link
+	EXIT_PATH = '<%= signout_path %>';
+	EXIT_TEXT = 'Exit';
+
+	/**
+	 * Function used for getting current URL Parameters, there should be a better way to do this
+	 * 
+	 */
+	function getUrlVars()
+	{
+	    var vars = [], hash;
+	    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+	    for(var i = 0; i < hashes.length; i++)
+	    {
+	        hash = hashes[i].split('=');
+	        vars.push(hash[0]);
+	        vars[hash[0]] = hash[1];
+	    }
+	    return vars;
+	}
+
+	/**
+	 * Generic data connector for the builder.  Implement a version to 
+	 * fit whatever backend you want the builder to tie into.
+	 *	 
+	 */
+	var SFconnector = {
+
+		/**
+		 * Basic implementation which saves the survey xml to browser storage.
+		 */											
+		save_survey_local: function(id, data, success, error) {
+
+			$.jStorage.set('surveyXML', data);
+			setTimeout(success, 1000);
+			
+			//error();  //uncomment this and comment out above to test error path
+		},
+
+		/**
+		 * Basic implementation which saves the survey xml to browser storage.
+		 */											
+		save_survey: function(id, data, success, error) {
+			
+			var surveyid = getUrlVars()["surveyid"];
+
+			$.post('surveys/upsert.json', { surveyid: surveyid, srdf: data}
+				,function(data){
+					
+					if(data["id"] != ''){
+
+						if(data["operation"] == 'insert'){
+							document.location.href='/builder?surveyid='+data["id"];
+						}
+						success();
+
+					}else{
+						error();
+					}
+
+				}
+			);
+
+		},
+		
+		/**
+		 *	Basic implementation which loads the survey xml from browser storage
+		 */
+		get_survey: function(id, success, error) {
+
+			var xmlDoc = null;
+			var survey = null;
+
+			// load definition from salesforce if id is provided, otherwise work with local storage
+			<% if @resp == nil %>
+				survey = $.jStorage.get('surveyXML');
+			<% else %>
+				survey = '<%= @resp.html_safe  %>';
+			<% end %>
+
+			// parse definition to an xmlDoc
+			if (window.DOMParser) {
+				parser=new DOMParser();
+				xmlDoc=parser.parseFromString(survey,"text/xml");
+			}
+			else { // Internet Explorer
+				xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+				xmlDoc.async="false";
+				xmlDoc.loadXML(survey); 
+			}
+			if (xmlDoc) {
+				success(xmlDoc);
+			}	
+			else {
+				error();
+			}
+		}
+   };
+
+   $(document).ready(function() {
+	   OpenAjax.hub.publish('survey.open', {'data_connector' : SFconnector, 'id':1 });
+	   
+	   // show basic error message on ajax fails
+	   $('#survey').ajaxError(function(e, xhr, settings, exception) {
+			alert("Error while making call to " + settings.url + ": " + exception);
+		});
+   });
+
+</script>
+
+<div id="survey-container"></div>

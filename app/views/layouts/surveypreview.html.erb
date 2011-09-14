@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <%= csrf_meta_tag %>
+   <%= javascript_include_tag :defaults %>
+   </head>
+
+  <body>
+
+    <!--   <link rel="stylesheet" type="text/css" href="images/UCSF_PortalResource/page-template-ctsi.css')}" />-->
+    <style>
+    body { 
+      background:url("images/UCSF_PortalResource/bg.png") repeat-x scroll 0 0 #B8D0D0;
+      margin: 0;
+      color: #333;
+      font-family: Arial,Verdana,sans-serif;
+      font-size: 72.125%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: Arial,Verdana,sans-serif;
+    }
+    h1, h2 {
+        margin: 20px 0 10px;
+        color: #CA7C29;
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+    h1 { display: block; margin: 10px 0 20px;}
+    h3 {
+        margin: 20px 0 10px;
+        color: #666666;
+        font-size: 1.3em;
+    }
+    p, .apexp .bPageBlock p {
+        margin: 10px;
+        font-size: 1em;
+        line-height: 1.7em;
+    }
+    ul, ol { 
+        margin-left: 0; padding-left: 20px;
+    }
+    ul li, ol li {
+        line-height: 1.7em;
+        margin-left: 0px;
+    }
+    img { border: none; }
+
+    #leaderboard { padding-left: 173px; background-color: #AAAA99; height: 30px; } 
+    * html #leaderboard a img { margin-bottom: -4px; }
+
+    #header {
+      width: 980px;
+    }
+    .site-logo {
+      padding-left:30px;
+      margin-bottom: 0;
+      display:inline;
+      float:left;
+      width: 758px;
+      height: 93px;
+      overflow: hidden;
+    }
+    * html .site-logo a img { margin-bottom: -4px; }
+
+    #header-right {
+      width: 191px;
+      height: 93px;
+      float: left;
+      background:url("images/UCSF_PortalResource/powered.gif") no-repeat scroll right bottom transparent; 
+    }
+    #header-right h2 {
+      display: block;
+      margin: 74px 0 0;
+      font-size: 14px;
+    }
+    #header-right h2 a { display: block;
+      background:url("images/UCSF_PortalResource/'favicon.gif") no-repeat scroll 30px 0 transparent; 
+      color: #CA7C29;
+      padding: 0 0 0 48px;
+      height: 18px;
+    }
+
+    a, a:active, a:visited, .pbBody a {
+     color: #3B6394;
+     outline: none;
+     text-decoration: none;
+    }
+    a:hover, .pbBody a:hover {
+            color: #1E416C; text-decoration:underline;
+    }
+
+    #suckerfishmenu  {
+      clear: both; margin: 0; padding: 0; 
+      width: 980px; height: 30px; background-color: #659191; 
+    }
+
+    #suckerfishmenu  ul.menu {
+      padding: 0; margin: 0;
+      list-style: none;
+    } 
+    #suckerfishmenu  li {
+      display: inline;
+      float: left;
+      margin: 0;
+      padding: 0;
+      font-size: 1.1em;
+      border-right: 1px solid #AAAA99; 
+      line-height: 30px;
+    }
+    #suckerfishmenu  a {
+      display: block;
+      padding: 0px 20px; /* padding between menu elements */
+      margin: 0;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em; color: #FFF;
+      background: #659191; 
+    }
+    #suckerfishmenu li a:active,
+    #suckerfishmenu li a:hover { background: #75A2A2; }
+    #suckerfishmenu li#active a, #suckerfishmenu li#active a:active, #suckerfishmenu li#active a:hover  { background: #457272; } 
+    #suckerfishmenu li.ctsi { width: 191px; text-align: center; }
+    #suckerfishmenu li.ctsi a { padding-right: 0; padding-left: 11px;
+      background:url("images/UCSF_PortalResource/ctsi-border.gif") repeat-x scroll 0 0 #D18145; 
+    }
+    #suckerfishmenu ul.menu li.ctsi li a { background-image:none; padding-left: 11px; }
+    #suckerfishmenu li.ctsi a:hover { background-color: #D89360; }
+
+    #content { clear: both; background-color: #FFF; margin: 0; padding: 0 0 20px; }
+
+    form, .topPanel { background-color: #FFF; margin: 0; }
+    center, #std-content { background-color: #FFF; padding-bottom: 20px; }
+    #std-content { padding-left: 300px; padding-top: 30px; }
+    #std-content-text { background-color: #FFF; padding: 30px 100px; }
+    input[type=text], input[type=password] { width: 200px; }
+    .bPageBlock { border: none; }
+
+    /* Footer */
+    #footer { margin: 0; padding: 8px 0 0; 
+      border-top: 1px solid #CCC; 
+      background-color: #FFF;
+    }
+    #footer h2 { font-size: 1.2em; padding-left: 22px; margin-left: 20px;
+      background:url("images/UCSF_PortalResource/favicon.gif") no-repeat scroll 0 0 transparent;  
+    }
+    #footer h2 a, #footer h2 a:visited, #footer h2 a:hover { color: #CA7C29; }
+    #footer p#contact { color: #333; float: right; line-height: 1.5em; margin: 0 20px; }
+    #footer-message { border-top: 3px solid #666; margin-top: 8px; background-color: #5F8C8C; }
+    #footer-message p { text-align: center; padding-bottom: 15px; line-height: 10px; color: #FFF; 
+      font-size: .9em; margin-bottom: 0; 
+    }
+    </style>
+
+    <div style="width:980px; margin:0 auto;">
+        <div id="leaderboard">
+          <a href="#"><img src="images/UCSF_PortalResource/ucsf_main.png" alt="UCSF" /></a>
+          <a href="#"><img src="images/UCSF_PortalResource/ucsf_about.png" alt="About UCSF" width="90" height="30"/></a>
+          <a href="#"><img src="images/UCSF_PortalResource/ucsf_search.png" alt="Search UCSF" width="86" height="30"/></a>
+          <a href="#"><img src="images/UCSF_PortalResource/ucsf_medicalcenter.png" alt="Medical Center" width="159" height="30"/></a>
+        </div>
+        <div id="header">
+           <div class="site-logo">
+              <a href="#"><img src="images/UCSF_PortalResource/ucsf.gif" alt="UCSF" style="margin:14px 0 0 20px;float:left" /></a>
+              <a href="#" title="Participant Recruitment Service Home">
+                <img src="images/UCSF_PortalResource/PRSlogo.png" alt="Participant Recruitment Service - University of California, San Francisco" /></a>
+            </div>
+            <div id="header-right">
+               <h2><a href="#" target="_blank">Powered by CTSI</a></h2>
+            </div>
+        </div>
+                
+        <div id="suckerfishmenu">
+             <ul class="menu">
+                 <li class="ctsi" style="float:right"><a href="http://ctsi.ucsf.edu/about" target="_blank">About CTSI</a></li>
+                 <li id="home"><a href="#">Home</a></li>
+                 <li id="pilot1"><a href="#">Anticoagulation</a></li>
+                 <li id="pilot2"><a href="#">Type 1 Diabetes</a></li>
+                 <li id="pilot3"><a href="#">Neuropathy</a></li>
+                 <li id="pilot4"><a href="#">Asthma</a></li>
+             </ul>
+         </div>  
+         
+        
+        <script type="javascript/text">
+            jQuery.noConflict();
+        </script>
+        <style>
+           .bPageTitle { display: none; }
+           .formColumnLabel { font-weight:normal; }
+           .formColumn { padding: 5px; }
+           #adults a { color: #005ABB; }
+            .userInfo { padding-top: 4px; display: block; }
+        </style>
+        <!--END: Do not remove (Akhilesh) -->
+
+      <!--START: Do not remove (Akhilesh) -->
+
+       <%= yield %>
+
+      <div id="footer">
+           <p id="contact">
+           <a href="#" target="_blank">About CTSI</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+           <a href="mailto:ricomoralesj@medsch.ucsf.edu">Contact Us</a>
+           </p> 
+           <h2><a href="#" target="_blank">Powered by CTSI</a>: accelerating research to improve health</h2>
+           <div id="footer-message">
+             <p>The University of California Copyright &copy; 2011 The Regents of the University of California. All Rights Reserved.</p>
+           </div>
+         </div>
+        </div>
+
+   
+
+  </body>
+</html>

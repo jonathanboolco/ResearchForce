@@ -1,0 +1,39 @@
+<div class="container">
+<div class="row">
+  <div class="span16">
+	<h1>All users</h1>
+
+	<%= will_paginate %>
+
+	<table class="users">
+	 <tr>
+	    <th>Photo</th>
+	    <th>Name</th>
+	    <th>Email</th>
+	    <th>Actions</th>
+	 </tr>
+
+	<% @users.each do |user| %>
+		<tr>
+			<td>
+				<%= image_tag(user.thumbnail+"?oauth_token="+@serviceauth.token,:size=>"30x30") %>
+			</td>
+			<td>
+				<%= link_to user.name, user %>
+			</td>
+			<td>
+				<%= user.email %>
+			</td>
+			<td>
+				<% if current_user.admin? %>
+			  	| <%= link_to "delete", user, :method => :delete, :confirm => "You sure?", :title => "Delete #{user.name}" %>
+				<% end %>
+			</td>
+		</tr>
+	<% end %>
+	</table>
+
+	<%= will_paginate %>
+	</div>
+</div>
+</div>

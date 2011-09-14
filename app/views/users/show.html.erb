@@ -1,0 +1,70 @@
+<div id="appContainer">
+<div class="container">
+<div class="row">
+	<div class="span16">
+		<table class="profile" summary="Profile information">
+		<tr>
+			<td class="main">
+				
+				<% if @userInfo[0] == nil %>
+					<div style="width:100%;">
+						<div style="width:220px;float:left;">
+							<%= image_tag(@userInfo["photo"]["largePhotoUrl"]+"?oauth_token="+@serviceauth.token , :alt => @userInfo["name"], :class => "glossy")%>
+						</div>
+						<div style="width:300px;float:left;">
+							<div><h1><%= @userInfo["name"] %></h1></div>
+							<div style="margin-left:10px;"><%= @userInfo["title"] %></div>
+							<br/>
+							<div>"<%= @userInfo["currentStatus"] != nil ? @userInfo["currentStatus"]["body"]["text"] : 'No status update' %>"</div>
+						</div>
+					</div>
+				<% else %>
+					<div style="width:100%;">
+						<%= @userInfo[0]["message"] %>
+					</div>
+					
+				<% end %>
+
+			</td>
+
+			<td>
+				
+				<table>
+							
+				<% if @userInfo[0] == nil %>
+					<tr><td><strong>About Me</strong></td></tr>
+					<tr><td><i><%= @userInfo["aboutMe"] %> </i></td></tr>
+					<tr><td><strong>Chatter : </strong> <a href="<%= @serviceauth.instance_url %>/<%= @userInfo["id"] %>" target="_blank" class="detailsLink">Full Profile</a></td></tr>
+					<tr><td><strong>Name : </strong> <%= @userInfo["name"] %></td></tr>
+					<tr><td><strong>Email : </strong> <%= @userInfo["email"] %></td></tr>
+					<% @userInfo["phoneNumbers"].each do |ph| %>
+					  	<tr><td>
+							<b>Phone <%= ph["type"]%>:</b>
+							<!-- tel protocol only works on an actual phone, 
+								 not the simulator -->
+							<a href='tel:<%= ph["number"] %>' 
+								rel="external"><%= ph["number"] %></a>
+						</td></tr>
+					<% end %>
+
+					<tr><td><b>Location: </b></td></tr>
+
+					<tr><td>
+					<%= @userInfo["address"]["street"] %>,
+					<%= @userInfo["address"]["city"] %> 
+					<%= @userInfo["address"]["state"] %>
+					</td></tr>
+					<tr><td><strong>Manager Name : </strong> <%= @userInfo["ManagerName"] %></td></tr>
+				<% end %>
+
+				</table>
+			</td>
+		</tr>
+		</table>
+
+	</div>
+</div>
+
+</div>
+
+</div>

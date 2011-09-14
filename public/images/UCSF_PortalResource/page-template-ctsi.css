@@ -1,0 +1,131 @@
+body { 
+  background:url("{!URLFOR($Resource.PortalResources, 'bg.png')}") repeat-x scroll 0 0 #B8D0D0;
+  margin: 0;
+  font-family: Arial,Verdana,sans-serif;
+  color: #333;
+  font-size: 72.125%;
+}
+img { border: none; }
+
+#page-container { width: 980px; margin: 0 auto; }
+
+#leaderboard { padding-left: 172px; background-color: #AAAA99; }
+* html #leaderboard a img { margin-bottom: -4px; }
+
+#header {
+  background:url("{!URLFOR($Resource.PortalResources, 'masthead-bg.png')}") repeat-x scroll 0 0 transparent;
+  float: left;
+  width: 980px;
+}
+#header-right h2 {
+  text-align: left; 
+  background:url("{!URLFOR($Resource.PortalResources, 'powered.gif')}") no-repeat scroll right bottom transparent; 
+  margin: 44px 0 0 760px;
+  height: 50px;
+  font-size: 14px;
+}
+* html #header-right h2 { margin-top: 24px; }
+*+html #header-right h2 { margin-top: 24px; }
+#header-right h2 a { display: block;
+  background:url("{!URLFOR($Resource.PortalResources, 'favicon.gif')}") no-repeat scroll 54px 31px transparent; 
+  color: #CA7C29;
+  padding: 33px 0 0 77px;
+  height: 18px;
+}
+
+.site-logo {
+  padding-left:30px;
+  margin-bottom: 0;
+  display:inline;
+  float:left;
+  height: 94px;
+}
+* html .site-logo a img { margin-bottom: -4px; }
+
+a, a:active, a:visited {
+ color: #3B6394;
+ outline: none;
+ text-decoration: none;
+}
+a:hover {
+        color: #1E416C; text-decoration:underline;
+}
+
+#suckerfishmenu	 {
+  clear: both; margin: 0; padding: 0; 
+  width: 980px; height: 30px; background-color: #659191; 
+}
+
+#suckerfishmenu	 ul.menu {
+  padding: 0; margin: 0;
+  list-style: none;
+} 
+#suckerfishmenu	 li {
+  display: inline;
+  float: left;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+  border-right: 1px solid #AAAA99; 
+  line-height: 30px;
+}
+#suckerfishmenu	 a {
+  display: block;
+  padding: 0px 20px; /* padding between menu elements */
+  margin: 0;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em; color: #FFF;
+  background: #659191; 
+}
+#suckerfishmenu li a:active,
+#suckerfishmenu li a:hover { background: #75A2A2; }
+#suckerfishmenu li#active a, #suckerfishmenu li#active a:active, #suckerfishmenu li#active a:hover  { background: #457272; } 
+#suckerfishmenu li.ctsi { width: 191px; text-align: center; }
+#suckerfishmenu li.ctsi a { padding-right: 0; padding-left: 11px;
+  background:url("{!URLFOR($Resource.PortalResources, 'ctsi-border.gif')}") repeat-x scroll 0 0 #D18145; 
+}
+#suckerfishmenu ul.menu li.ctsi li a { background-image:none; padding-left: 11px; }
+#suckerfishmenu li.ctsi a:hover { background-color: #D89360; }
+
+#content { clear: both; background-color: #FFF; margin: 0; padding: 0 0 20px; 
+  border-top: 3px solid #AAAA99; 
+}
+
+h2 {
+    margin: 20px 20px 10px;
+    color: #CA7C29;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+h3 {
+    margin: 20px 20px 10px;
+    color: #666666;
+    font-size: 1.3em;
+}
+p {
+    margin: 10px 20px;
+    font-size: 1em;
+    line-height: 1.7em;
+}
+li {
+    line-height: 1.7em;
+    margin-left: 10px;
+}
+
+.topPanel { background-color: #FFF; margin: 0; }
+
+/* Footer */
+#footer { margin: 0; padding: 0; 
+  border-top: 3px solid #666; 
+  background-color: #FFF;
+}
+#footer h2 { font-size: 1.2em; margin-top: 10px; padding-left: 22px;
+  background:url("{!URLFOR($Resource.PortalResources, 'favicon.gif')}") no-repeat scroll 0 0 transparent;  
+}
+#footer p#contact { color: #333; float: right; line-height: 1.5em; }
+#footer-message { border-top: 3px solid #666; padding-top: 5px; background-color: #5F8C8C; }
+#footer-message p { text-align: center; padding-bottom: 15px; line-height: 10px; color: #FFF; 
+  font-size: .9em; margin-bottom: 0; }
+
+

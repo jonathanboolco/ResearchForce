@@ -1,0 +1,51 @@
+<div class="topbar">
+
+  <div class="fill">
+
+    <div class="container" style="width:100% !important;padding: 0 10px;min-width:950px;">
+
+      <h3><a href="#"><%= image_tag("ucsf_logo_white.png" , :alt => "logo",:height => 20) %> Surveys</a></h3>
+
+		<% if signed_in? %>
+			<ul>
+				<li><%= link_to "Home", root_path %></li>
+				<li><%= link_to "Survey Builder", builder_path %></li>
+				<li><%= link_to "My Surveys", surveys_path %></li>
+				<% if current_user.admin? %>
+				<li><%= link_to "Users", users_path %></li>
+				<li><%= link_to "Settings", edit_user_path(current_user) %></li>
+				<% end %>
+				<li><%= link_to "Help", help_path %></li>
+			</ul>
+	    <% else %>
+	   		<ul class="nav secondary-nav" style="margin-right: 25px;">
+				<li><%= link_to "Sign in", signin_path %></li>
+			</ul>
+	    <% end %>
+
+	    <% if signed_in? %>
+	    <ul class="nav secondary-nav" style="margin-right: 25px;">
+	    	<li>
+	    		<%= link_to  image_tag(current_user.thumbnail+"?oauth_token="+serviceauth.token , :alt => current_user.name, :height => '25', :width => '25', :style => 'border-radius:3px;'), current_user,:style => 'padding:7px 0 0px 0;margin:0;' %>
+	    </td>
+	    	</li>
+
+	    </ul>
+		<ul class="nav secondary-nav">
+			<li class="menu">
+				<a href="#" class="menu"><%= current_user.name %></a>
+				<ul class="menu-dropdown">
+					<li><%= link_to "My Account", current_user %></li>
+					<li><%= link_to "Feedback", current_user %></li>
+					<li class="divider"></li>
+					<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+				</ul>
+			</li>
+		</ul>
+		<% end %>
+
+    </div>
+
+  </div>
+
+</div>

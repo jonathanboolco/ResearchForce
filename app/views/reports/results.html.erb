@@ -1,0 +1,21 @@
+<div id="appContainer">
+<div class="container">
+	<div class="row">
+		  <div class="span16">
+		<% if(params[:status] == 'done') %>
+
+			<h2> Your survey has been published!<h2>
+
+			<h3> What's next? </h3>
+
+			<p> Click <a href="<%= @serviceauth.instance_url %>/<%= params[:pid] %>" style="font-weight:bold;text-decoration:underline;">here</a> to view your published survey and start sending invitations! Selected contacts will receive an email notification with a link to launch your survey.</p>
+
+		<% else %>
+			
+			<h3> Ooops, something went wrong :(<h3>
+
+		<% end %>
+		</div>
+	</div>
+</div>
+</div>
