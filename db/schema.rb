@@ -10,7 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110711173224) do
+ActiveRecord::Schema.define(:version => 20110914034634) do
+
+  create_table "research_items", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "url"
+    t.integer  "research_item_id"
+    t.datetime "created_at"
+    t.string   "rssurl"
+    t.integer  "created_by"
+    t.integer  "project_id"
+    t.integer  "dialogue_association"
+  end
 
   create_table "services", :force => true do |t|
     t.integer  "user_id"
